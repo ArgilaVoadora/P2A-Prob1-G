@@ -6,6 +6,7 @@ public class WavPlayerAdaptor implements FormatoAudio {
     
     @Override
     public void abrir(String file) {
+        //O arquivo é aberto no construtor da classe.
         arquivo = new WAVPlayer(file);
     }
 
@@ -22,32 +23,36 @@ public class WavPlayerAdaptor implements FormatoAudio {
     @Override
     public void parar() {
         arquivo.stop();
-        arquivo = null;
+        //O método reward(0) retorna a posição atual do arquivo .
+        arquivo.reward(arquivo.reward(0));
     }
 
     @Override
     public void avancar(int value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //O método foward avança (n) millisegundos no arquivo de áudio e retorna a posição atual em que
+        arquivo.forward(value);
     }
 
     @Override
     public void retornar(int value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //O método reward retorna (n) millisegundos no arquivo de audio e retorna a posição em que parou.
+        arquivo.reward(value);
     }
 
     @Override
     public void liberar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        arquivo = null;
     }
 
     @Override
     public void reproduzirSimples(String file) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        abrir(file);
     }
 
     @Override
     public void pararSimples() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        parar();
+        liberar();
     }
     
 }
