@@ -22,6 +22,7 @@ public class WmaPlayAdaptor implements FormatoAudio {
 
     @Override
     public void parar() {
+        arquivo.stop();
         arquivo.setLocation(0);
     }
 
