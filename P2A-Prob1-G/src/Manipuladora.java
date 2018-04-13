@@ -1,12 +1,22 @@
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import problema1.AIFFSuperPlayer;
 import problema1.WAVPlayer;
 import problema1.wmaPlay;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author joaovitoraguiar
+ */
+public class Manipuladora implements FormatoAudio{
 
-public class Manipulador implements FormatoAudio {
+    public static void main(String[] args) {
+        
+    }
 
     String extencao;
     
@@ -195,5 +205,4 @@ public class Manipulador implements FormatoAudio {
                 
         }
     }
-
 }
