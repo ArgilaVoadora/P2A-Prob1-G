@@ -136,13 +136,7 @@ public class Manipulador implements FormatoAudio {
     public void liberar() {
         switch (extencao) {
             case "WAV":
-        {
-            try {
-                wav.finalize();
-            } catch (Throwable ex) {
-                Logger.getLogger(Manipulador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+                wav = null;
                 break;
 
             case "WMA":
