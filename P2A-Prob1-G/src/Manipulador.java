@@ -1,4 +1,6 @@
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import problema1.AIFFSuperPlayer;
 import problema1.WAVPlayer;
 import problema1.wmaPlay;
@@ -134,7 +136,13 @@ public class Manipulador implements FormatoAudio {
     public void liberar() {
         switch (extencao) {
             case "WAV":
-                wav = null;
+        {
+            try {
+                wav.finalize();
+            } catch (Throwable ex) {
+                Logger.getLogger(Manipulador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
 
             case "WMA":
@@ -176,16 +184,19 @@ public class Manipulador implements FormatoAudio {
             case "WAV":
                 wav.stop();
                 wav.reward(wav.reward(0));
+                wav = null;
                 break;
 
             case "WMA":
                  wma.stop();
                 wma.setLocation(0);
+                wma = null;
                 break;
 
             case "AIFF":
                 aiff.stop();
                 aiff.setCursor(0);
+                aiff.release();
                 break;
                 
         }
