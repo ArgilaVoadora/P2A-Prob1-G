@@ -7,12 +7,14 @@ import problema1.wmaPlay;
 public class Manipulador implements FormatoAudio {
 
     String extencao;
+    
     WAVPlayer wav;
     wmaPlay wma;
     AIFFSuperPlayer aiff;
+    
     @Override
     public void abrir(String file) {
-        extencao = file.split(".")[1];
+        extencao = file.split(".")[file.split(".").length -1];
 
         switch (extencao) {
             case "WAV":
