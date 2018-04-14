@@ -3,20 +3,7 @@ import problema1.AIFFSuperPlayer;
 import problema1.WAVPlayer;
 import problema1.wmaPlay;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-/**
- *
- * @author joaovitoraguiar
- */
 public class Manipuladora implements FormatoAudio{
-
-    public static void main(String[] args) {
-        
-    }
 
     String extencao;
     
@@ -26,9 +13,10 @@ public class Manipuladora implements FormatoAudio{
     
     @Override
     public void abrir(String file) {
-        extencao = file.split(".")[file.split(".").length -1];
+        String[] ex = file.split("\\.");
+        extencao = ex[1];
 
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav = new WAVPlayer(file);
                 break;
@@ -49,7 +37,7 @@ public class Manipuladora implements FormatoAudio{
     @Override
     public void reproduzir() {
 
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav.play();
                 break;
@@ -67,7 +55,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void pausar() {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav.stop();
                 break;
@@ -85,7 +73,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void parar() {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav.stop();
                 wav.reward(wav.reward(0));
@@ -106,7 +94,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void avancar(int value) {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav.forward(value);
                 break;
@@ -125,7 +113,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void retornar(int value) {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav.reward(value);
                 break;
@@ -144,7 +132,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void liberar() {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav = null;
                 break;
@@ -162,7 +150,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void reproduzirSimples(String file) {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav = new WAVPlayer(file);
                 wav.play();
@@ -184,7 +172,7 @@ public class Manipuladora implements FormatoAudio{
 
     @Override
     public void pararSimples() {
-        switch (extencao) {
+        switch (extencao.toUpperCase()) {
             case "WAV":
                 wav.stop();
                 wav.reward(wav.reward(0));
@@ -198,7 +186,6 @@ public class Manipuladora implements FormatoAudio{
                 break;
 
             case "AIFF":
-                aiff.stop();
                 aiff.setCursor(0);
                 aiff.release();
                 break;
