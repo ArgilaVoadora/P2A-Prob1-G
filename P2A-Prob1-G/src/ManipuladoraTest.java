@@ -4,11 +4,11 @@ public class ManipuladoraTest {
         String arquivoWMA = "Teste.WMA";
         String arquivoAIFF = "Teste.AIFF";
         
-        Manipuladora mani = new Manipuladora();
+       // Manipuladora mani = new Manipuladora();
        
-        mani.abrir(arquivoWAV);
-        mani.reproduzirSimples(arquivoWMA);
-        mani.pararSimples();
+//        mani.abrir(arquivoWAV);
+//        mani.reproduzirSimples(arquivoWMA);
+//        mani.pararSimples();
 
     }
 }
