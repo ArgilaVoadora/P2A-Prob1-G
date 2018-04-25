@@ -1,3 +1,4 @@
+--> Prof. Marcel: quem são os adaptees (adaptados)?
 Adapter:
 ManipulaMP3.java
 ManipulaAIFF.java
@@ -7,9 +8,11 @@ ManipulaWMA.java
 
 Facade:
 ManipuladoFacade.java
+--> Prof. Marcel: a fachada não foi corretamente implementada, pois não deveria conter vários métodos, além de reproduzirSimples e pararSimples. Não deveria ser uma implementação da interface FormatoAudio. Assim como a interface FormatoAudio deveria estar restrita aos métodos especificados e não incorporar reproduzirSimples e pararSimples.
 
 Factory:
 FactoryAudio.java
+--> Prof. Marcel: quem é Product? Quem é ConcreteProduct?
 
 Target:
 FormatoAudio.java
