@@ -1,54 +1,55 @@
+import problema1.AACPlayer;
 
-public class ManipuladoraFacade implements FormatoAudio {
+public class ManipulaAAC implements FormatoAudio {
 
-    private FormatoAudio audio = null;
-    
-    public ManipuladoraFacade(String file) {
-        audio = new FactoryAudio().getFormato(file);
-    }    
+    AACPlayer aac;
 
     @Override
     public void abrir(String file) {
-        audio.abrir(file);
+        aac = new AACPlayer(file);
     }
 
     @Override
     public void reproduzir() {
-        audio.reproduzir();
+        aac.play();
     }
 
     @Override
     public void pausar() {
-        audio.pausar();
+        aac.stop();
     }
 
     @Override
     public void parar() {
-        audio.parar();
+        aac.stop();
+        aac.setLocation(0);
     }
 
     @Override
     public void avancar(int value) {
-        audio.avancar(value);
+        aac.setLocation(aac.getLocation() + value);
     }
 
     @Override
     public void retornar(int value) {
-        audio.retornar(value);
+        aac.setLocation(aac.getLocation() - value);
     }
 
     @Override
     public void liberar() {
-        audio.liberar();
+        aac = null;
     }
 
     @Override
     public void reproduzirSimples(String file) {
-        audio.reproduzirSimples(file);
+        abrir(file);
+        reproduzir();
     }
 
     @Override
     public void pararSimples() {
-        audio.pararSimples();
+        parar();
+        liberar();
     }
+
 }

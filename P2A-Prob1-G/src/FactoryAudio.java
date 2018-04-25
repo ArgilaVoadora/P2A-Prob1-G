@@ -1,4 +1,3 @@
-
 public class FactoryAudio {
 
     public FormatoAudio getFormato(String file) {
@@ -11,6 +10,10 @@ public class FactoryAudio {
                 return new ManipulaWMA();
             case "AIFF":
                 return new ManipulaAIFF();
+            case "MP3":
+                return new ManipulaMP3();
+            case "AAC":
+                return new ManipulaAAC();
         }
         return null;
     }

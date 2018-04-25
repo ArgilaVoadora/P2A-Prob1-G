@@ -1,54 +1,56 @@
+import problema1.MP3DJ;
 
-public class ManipuladoraFacade implements FormatoAudio {
+public class ManipulaMP3 implements FormatoAudio {
 
-    private FormatoAudio audio = null;
-    
-    public ManipuladoraFacade(String file) {
-        audio = new FactoryAudio().getFormato(file);
-    }    
+    MP3DJ mptres;
 
     @Override
     public void abrir(String file) {
-        audio.abrir(file);
+        mptres = new MP3DJ();
+        mptres.setFile(file);
     }
 
     @Override
     public void reproduzir() {
-        audio.reproduzir();
+        mptres.play();
     }
 
     @Override
     public void pausar() {
-        audio.pausar();
+        mptres.stop();
     }
 
     @Override
     public void parar() {
-        audio.parar();
+        mptres.stop();
+        mptres.reward(mptres.reward(0));
     }
 
     @Override
     public void avancar(int value) {
-        audio.avancar(value);
+        mptres.forward(value);
     }
 
     @Override
     public void retornar(int value) {
-        audio.retornar(value);
+        mptres.reward(value);
     }
 
     @Override
     public void liberar() {
-        audio.liberar();
+        mptres = null;
     }
 
     @Override
     public void reproduzirSimples(String file) {
-        audio.reproduzirSimples(file);
+        abrir(file);
+        reproduzir();
     }
 
     @Override
     public void pararSimples() {
-        audio.pararSimples();
+        parar();
+        liberar();
     }
+
 }

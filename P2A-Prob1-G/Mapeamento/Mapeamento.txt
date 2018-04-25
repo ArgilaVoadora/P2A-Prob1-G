@@ -1,0 +1,15 @@
+Adapter:
+ManipulaMP3.java
+ManipulaAIFF.java
+ManipulaAAC.java
+ManipulaWAV.java
+ManipulaWMA.java
+
+Facade:
+ManipuladoFacade.java
+
+Factory:
+FactoryAudio.java
+
+Target:
+FormatoAudio.java

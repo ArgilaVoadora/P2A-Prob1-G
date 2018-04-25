@@ -1,14 +1,14 @@
 public class ManipuladoraTest {
-    public static void main(String[] args) {
-        String arquivoWAV = "Teste.WAV";
-        String arquivoWMA = "Teste.WMA";
-        String arquivoAIFF = "Teste.AIFF";
+    public static void main(String[] args) throws Exception {
         
-       // Manipuladora mani = new Manipuladora();
-       
-//        mani.abrir(arquivoWAV);
-//        mani.reproduzirSimples(arquivoWMA);
-//        mani.pararSimples();
-
+        ManipuladoraFacade MF = new ManipuladoraFacade("teste.mp3");
+        
+        MF.abrir("teste.mp3");
+        MF.avancar(10);
+        MF.reproduzir();
+        MF.avancar(5);
+        MF.pausar();
+        MF.parar();
+        MF.liberar();
     }
 }
